@@ -28,10 +28,10 @@ class Character{
         
         if(solidBlock > 10){
             this.health -= x/2
-            document.querySelector(".dice").innerText = `${this.name} rolled a ${solidBlock} and only took ${x/2} damage`
+            document.querySelector("#dice").innerText = `${this.name} rolled a ${solidBlock} and only took ${x/2} damage`
         }else{
             this.health -= x
-            document.querySelector(".dice").innerText = `${this.name} rolled a meager ${solidBlock} and took ${x} damage`
+            document.querySelector("#dice").innerText = `${this.name} rolled a meager ${solidBlock} and took ${x} damage`
         }
     }
     
@@ -60,6 +60,9 @@ let dayNumber = 1
 // clicking on red allows her to move forward if she rolls high enough to not have a random encounter. 
 // if she has a random encounter then Goofy shows up and she can either run or fight
 function turnGo(){
+     if(i == 6){
+            alert("RED WINS AND SAVED GRANDMA")
+        }
     document.querySelector("#red").addEventListener("click", function(){
     let value = roll()
     document.querySelector("#dice").innerText = `You rolled a ${value}`
@@ -68,6 +71,7 @@ function turnGo(){
         document.querySelector(`#box${i}`).innerHTML = ""
         document.querySelector(`#box${i+1}`).innerHTML = `<img src="red.png" id = "red" alt=""></img>`
         i += 1
+       
         turnGo()
     }else{
         randomMonster()
@@ -95,7 +99,7 @@ function fightOrFlight() {
         fight.className = "buttons"
         fight.innerText = "FIGHT"
         let flight = document. createElement("button")
-        flight.innerText = "RUN AWAY"
+        flight.innerText = "RUN"
         flight.id = "flight"
         flight.className = "buttons"
         let buttons = document.querySelector("#dice")
@@ -109,11 +113,23 @@ function fightOrFlight() {
 
         fight.addEventListener("click", function(){
 
-            while(goofy.health > 10 || red.health > 10){
+            while(goofy.health > 10 && red.health > 10){
             red.takeDamage(goofy.attack)
             goofy.takeDamage(red.attack)
             document.querySelector("h3").innerText = `Health: ${goofy.health}, Attack: ${goofy.attack}`
             document.querySelector(".redStats").innerText = `Health: ${red.health}, Attack: ${red.attack}`
+            
+            }
+            if(goofy.health < 10){
+                document.querySelector("h3").innerText = ""
+                document.querySelector("h2").innerText = ""
+                fight.remove()
+                flight.remove()
+                document.querySelector(`#box${i + 1}`).innerHTML = ""
+                
+            }
+            else{
+                document.querySelector("body").innerHTML = `<img src= "goof.png" class = "goofwins">`
             }
 
         })

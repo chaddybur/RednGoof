@@ -53,8 +53,20 @@ h1{
     font-size: large;
     
 }
-.buttons{
+#fight{
     margin: 1rem;
+    background-color: burlywood;
+    height: 2rem;
+    width: 4rem;
+
+}
+#flight{
+    margin: 1rem;
+    background-color: burlywood;
+    height: 2rem;
+    width: 4rem;
+ 
+
 }
 .goofwins{
     width: 25rem;
