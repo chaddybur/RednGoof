@@ -1,0 +1,58 @@
+body{
+    background-image: url("forest.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#path{
+    margin-top: 15rem;
+width: 100%;
+display: flex;
+}
+.box{
+    
+    width:  13%;
+    height: 8rem;
+    background-color: burlywood;
+    border: black 2px solid;
+
+}
+#red{
+    height: 8rem;
+    width: 8em;
+
+}
+#goofy{
+    height: 8rem;
+    width: 8rem;
+
+}
+#house{
+    height: 8rem;
+    width: 10rem;
+    
+}
+.dice{
+    display: float;
+    float: right;
+    height: 10rem;
+    width: 10rem;
+   margin-left: 50%;
+}
+#dice{
+    height: 3rem;
+    width: 13rem;
+    margin-left: 45%;
+    margin-top: 2rem;
+    color: white;
+    text-shadow: black .5px .5px;
+    font-size: xx-large;
+}
+h1{
+    display: float;
+    float: right;
+    font-size: large;
+    
+}
+.buttons{
+    margin: 1rem;
+}
