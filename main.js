@@ -25,10 +25,13 @@ class Character{
    
     takeDamage(x){
         let solidBlock = roll()
+        
         if(solidBlock > 10){
             this.health -= x/2
+            document.querySelector(".dice").innerText = `${this.name} rolled a ${solidBlock} and only took ${x/2} damage`
         }else{
             this.health -= x
+            document.querySelector(".dice").innerText = `${this.name} rolled a meager ${solidBlock} and took ${x} damage`
         }
     }
     
@@ -99,11 +102,19 @@ function fightOrFlight() {
         buttons.appendChild(fight)
         buttons. appendChild(flight)
 
+
         // setting up the Battle. Probably need a different function for sparring? Is it ok to pop it all in an event listener?
         // should we count the days it takes Red to get to Grandma? Maybe force her to complete the task in a certain number of tries?
         // add a pop up that says what the rules/ goal is?
 
         fight.addEventListener("click", function(){
+
+            while(goofy.health > 10 || red.health > 10){
+            red.takeDamage(goofy.attack)
+            goofy.takeDamage(red.attack)
+            document.querySelector("h3").innerText = `Health: ${goofy.health}, Attack: ${goofy.attack}`
+            document.querySelector(".redStats").innerText = `Health: ${red.health}, Attack: ${red.attack}`
+            }
 
         })
         flight.addEventListener("click", function(){
@@ -115,6 +126,7 @@ function fightOrFlight() {
         document.querySelector("h2").innerText = ""
         fight.remove()
         flight.remove()
+        // adding days to force Red to fight more often. Added ending condition if Goof wins
         dayNumber++ 
         document.querySelector(".day").innerText = `Day ${dayNumber}`
         if(dayNumber > 5){
