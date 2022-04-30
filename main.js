@@ -100,7 +100,7 @@ function fightOrFlight() {
 
         // setting up the Battle. Probably need a different function for sparring? Is it ok to pop it all in an event listener?
         // should we count the days it takes Red to get to Grandma? Maybe force her to complete the task in a certain number of tries?
-        // add a pop up that says what the rules/ goal is
+        // add a pop up that says what the rules/ goal is?
 
         fight.addEventListener("click", function(){
 
@@ -122,3 +122,6 @@ function fightOrFlight() {
 // win screen if Red ever reaches her Grandma's house? Or should Goofy be there and it's a boss fight? 
 
 // if goofy wins (meaning Red is Dead), Giant picture of Goofy with the picture "I'll fuckin do it again"
+
+alert("You have 5 days to get to Grandma's House before the Evil Goofy will murder her to death. If you encounter a wild Goofy on the way to Grandma's house, you can fight or run away. Running away is going to cost you though. All options are 20 sides rolls. Anything above a 10 is a success.")
+
