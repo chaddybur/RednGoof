@@ -53,6 +53,7 @@ function randomMonster(){
 } 
 // global varibal to keep track of Red's progress. Definitely not best practice. Think on fixes.
 let i = 0;
+let dayNumber = 1
 // clicking on red allows her to move forward if she rolls high enough to not have a random encounter. 
 // if she has a random encounter then Goofy shows up and she can either run or fight
 function turnGo(){
@@ -114,6 +115,12 @@ function fightOrFlight() {
         document.querySelector("h2").innerText = ""
         fight.remove()
         flight.remove()
+        dayNumber++ 
+        document.querySelector(".day").innerText = `Day ${dayNumber}`
+        if(dayNumber > 5){
+            document.querySelector("body").innerHTML = `<img src= "goof.png" class = "goofwins">`
+
+        }
        turnGo()
         })
 
